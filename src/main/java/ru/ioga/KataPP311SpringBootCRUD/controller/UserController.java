@@ -49,10 +49,10 @@ public class UserController {
 
     @GetMapping(value = "user-update/{id}")
     public String updateUserForm(@PathVariable("id") Long id, Model model) {
-        System.out.println("IDIDIDIDIDI" + id);
+        
         User user = userService.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
-        System.out.println(user);
+        
         model.addAttribute("user", user);
         return "/user-update";
     }
